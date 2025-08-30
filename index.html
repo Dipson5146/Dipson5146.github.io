@@ -1,73 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Projects</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dipson Nepal — Portfolio</title>
+  <meta name="description" content="Dipson Nepal — Web Developer. Projects: Weather App, Task Manager, Blog, Snake Game, Calculator." />
+  <link rel="icon" href="/favicon.ico">
 
-  <!-- Navbar -->
-  <header class="bg-black text-white sticky top-0 shadow-md z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-      <a href="#" class="text-xl font-bold tracking-wide">MyPortfolio</a>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="#" class="hover:text-gray-300">Home</a>
-        <a href="#projects" class="hover:text-gray-300">Projects</a>
-        <a href="#contact" class="hover:text-gray-300">Contact</a>
+  <!-- Preload hero images -->
+  <link rel="preload" as="image" href="dipson1.jpg">
+  <link rel="preload" as="image" href="dipson2.jpg">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <!-- Use both images side-by-side, not an SVG. -->
+        <a href="#hero" class="logo" aria-label="Dipson Nepal homepage">
+          <img src="dipson1.jpg" alt="Dipson Nepal portrait 1" loading="lazy" width="56" height="56"
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/56x56.png?text=DN'">
+          <img src="dipson2.jpg" alt="Dipson Nepal portrait 2" loading="lazy" width="56" height="56"
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/56x56.png?text=DN'">
+          <span class="name">Dipson Nepal</span>
+        </a>
+      </div>
+
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Primary navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
       </nav>
-      <button class="md:hidden px-2 py-1 border rounded">☰</button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-    <h1 class="text-3xl md:text-5xl font-bold">Welcome to My Projects</h1>
-    <p class="mt-3 text-lg md:text-xl">A collection of my web apps and experiments</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="max-w-6xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-6 text-gray-900">Projects</h2>
-    
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-      <!-- Project Card -->
-      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-semibold mb-2">🌦️ Weather App</h3>
-        <p class="text-gray-600">Fetches live weather data from an API and displays temperature & forecast.</p>
+  <main id="main" tabindex="-1">
+    <!-- HERO -->
+    <section id="hero" class="panel" aria-labelledby="hero-title" role="region">
+      <div class="hero-inner">
+        <h1 id="hero-title">Hi — I'm <strong>Dipson Nepal</strong></h1>
+        <p class="lead"><span id="typing" aria-live="polite"></span></p>
+        <p class="sub">I build clean web apps, playful UX, and tiny tools that make people smile.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
       </div>
+    </section>
 
-      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-semibold mb-2">✅ Task Manager</h3>
-        <p class="text-gray-600">A to-do list app with add, edit, delete, and save to local storage.</p>
+    <!-- PROJECTS -->
+    <section id="projects" class="panel" aria-labelledby="projects-title" role="region">
+      <h2 id="projects-title">Projects</h2>
+      <p class="muted small">Click a card to open the live project in a modal. Each project runs client-side.</p>
+
+      <div class="projects-grid">
+        <!-- Each project card opens the modal that contains a full working app -->
+        <article class="project-card" data-modal="modal-weather" tabindex="0" aria-describedby="proj-weather-desc">
+          <div class="card-media">
+            <picture>
+              <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Weather+App">
+              <img src="https://via.placeholder.com/400x200.png?text=Weather+App" alt="Weather App screenshot" loading="lazy">
+            </picture>
+          </div>
+          <div class="card-content">
+            <h3><span class="proj-icon" aria-hidden="true">🌦️</span> Weather App</h3>
+            <p id="proj-weather-desc">Search a city and get live weather (uses Open-Meteo & geocoding API).</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-modal="modal-tasks" tabindex="0" aria-describedby="proj-tasks-desc">
+          <div class="card-media"><img src="https://via.placeholder.com/400x200.png?text=Task+Manager" alt="Task Manager" loading="lazy"></div>
+          <div class="card-content">
+            <h3><span class="proj-icon" aria-hidden="true">✅</span> Task Manager</h3>
+            <p id="proj-tasks-desc">Add/edit/delete tasks with localStorage persistence and due dates.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-modal="modal-blog" tabindex="0" aria-describedby="proj-blog-desc">
+          <div class="card-media"><img src="https://via.placeholder.com/400x200.png?text=Blog+Website" alt="Blog Website" loading="lazy"></div>
+          <div class="card-content">
+            <h3><span class="proj-icon" aria-hidden="true">✍️</span> Blog</h3>
+            <p id="proj-blog-desc">Client-side blog: create posts, categories, and read articles. Stored locally.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-modal="modal-snake" tabindex="0" aria-describedby="proj-snake-desc">
+          <div class="card-media"><img src="https://via.placeholder.com/400x200.png?text=Snake+Game" alt="Snake Game" loading="lazy"></div>
+          <div class="card-content">
+            <h3><span class="proj-icon" aria-hidden="true">🐍</span> Snake Game</h3>
+            <p id="proj-snake-desc">Classic canvas snake with scoring and speed levels.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-modal="modal-calc" tabindex="0" aria-describedby="proj-calc-desc">
+          <div class="card-media"><img src="https://via.placeholder.com/400x200.png?text=Calculator" alt="Calculator App" loading="lazy"></div>
+          <div class="card-content">
+            <h3><span class="proj-icon" aria-hidden="true">🧮</span> Calculator</h3>
+            <p id="proj-calc-desc">A responsive calculator for basic arithmetic with keyboard support.</p>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-semibold mb-2">📝 Blog Website</h3>
-        <p class="text-gray-600">Personal blog with posts, categories, and a clean layout.</p>
+    <!-- MODALS with embedded apps -->
+
+    <!-- Weather modal -->
+    <div id="modal-weather" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-weather-title">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close modal">&times;</button>
+        <h3 id="modal-weather-title">Weather App <span class="proj-icon-inline">🌦️</span></h3>
+        <p class="muted small">Uses free Open-Meteo geocoding and forecast APIs. No API key required.</p>
+        <div class="weather-app">
+          <form id="weather-form" class="row" aria-label="Search city">
+            <input id="city-input" placeholder="Enter city (e.g., Kathmandu)" required>
+            <button class="btn" type="submit">Lookup</button>
+          </form>
+          <div id="weather-result" class="weather-result" aria-live="polite"></div>
+        </div>
       </div>
-
-      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-semibold mb-2">🎮 Snake Game</h3>
-        <p class="text-gray-600">Classic snake game with scoring system.</p>
-      </div>
-
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-gray-100 py-12 text-center">
-    <h2 class="text-2xl font-bold mb-4">Contact</h2>
-    <p class="text-gray-600 mb-6">Feel free to reach out for collaborations or project discussions!</p>
-    <a href="mailto:youremail@example.com" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Say Hello</a>
-  </section>
+    <!-- Task Manager modal -->
+    <div id="modal-tasks" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-tasks-title">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close modal">&times;</button>
+        <h3 id="modal-tasks-title">Task Manager <span class="proj-icon-inline">✅</span></h3>
+        <div class="tasks-app">
+          <form id="task-form">
+            <input id="task-text" placeholder="New task title" required>
+            <input id="task-due" type="date">
+            <button class="btn" type="submit">Add Task</button>
+          </form>
+          <ul id="tasks-list" class="tasks-list" aria-live="polite"></ul>
+        </div>
+      </div>
+    </div>
 
-  <!-- Footer -->
-  <footer class="bg-black text-gray-400 py-6 text-center text-sm">
-    © 2025 MyPortfolio. All rights reserved.
+    <!-- Blog modal -->
+    <div id="modal-blog" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-blog-title">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close modal">&times;</button>
+        <h3 id="modal-blog-title">Mini Blog <span class="proj-icon-inline">✍️</span></h3>
+        <div class="blog-app">
+          <form id="post-form">
+            <input id="post-title" placeholder="Post title" required>
+            <select id="post-category"><option value="General">General</option><option value="Tech">Tech</option><option value="Life">Life</option></select>
+            <textarea id="post-body" rows="6" placeholder="Write your post here..." required></textarea>
+            <button class="btn" type="submit">Publish</button>
+          </form>
+          <div class="blog-list" id="blog-list" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Snake modal -->
+    <div id="modal-snake" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-snake-title">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close modal">&times;</button>
+        <h3 id="modal-snake-title">Snake Game <span class="proj-icon-inline">🐍</span></h3>
+        <div class="snake-app">
+          <div class="snake-controls">
+            <label>Speed: <input id="snake-speed" type="range" min="4" max="16" value="8"></label>
+            <button class="btn" id="snake-start">Start</button>
+            <button class="btn ghost" id="snake-reset">Reset</button>
+          </div>
+          <canvas id="snake-canvas" width="400" height="400" tabindex="0" aria-label="Snake game canvas"></canvas>
+          <div class="snake-info">Score: <span id="snake-score">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator modal -->
+    <div id="modal-calc" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-calc-title">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close modal">&times;</button>
+        <h3 id="modal-calc-title">Calculator <span class="proj-icon-inline">🧮</span></h3>
+        <div class="calc-app">
+          <input id="calc-display" class="calc-display" readonly aria-label="Calculator display">
+          <div class="calc-grid">
+            <button class="calc-btn" data-value="7">7</button>
+            <button class="calc-btn" data-value="8">8</button>
+            <button class="calc-btn" data-value="9">9</button>
+            <button class="calc-btn op" data-value="/">÷</button>
+
+            <button class="calc-btn" data-value="4">4</button>
+            <button class="calc-btn" data-value="5">5</button>
+            <button class="calc-btn" data-value="6">6</button>
+            <button class="calc-btn op" data-value="*">×</button>
+
+            <button class="calc-btn" data-value="1">1</button>
+            <button class="calc-btn" data-value="2">2</button>
+            <button class="calc-btn" data-value="3">3</button>
+            <button class="calc-btn op" data-value="-">−</button>
+
+            <button class="calc-btn" data-value="0">0</button>
+            <button class="calc-btn" data-value=".">.</button>
+            <button class="calc-btn wide" id="calc-equals" data-value="=">=</button>
+            <button class="calc-btn op" data-value="+">+</button>
+
+            <button class="calc-btn ghost" id="calc-clear">C</button>
+            <button class="calc-btn ghost" id="calc-del">⌫</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel" aria-labelledby="contact-title" role="region">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">Find me on Instagram or email me directly.</p>
+      <div class="socials">
+        <a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:youremail@example.com">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <small>© <span id="year"></span> Dipson Nepal — Built with care.</small>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
 </html>
