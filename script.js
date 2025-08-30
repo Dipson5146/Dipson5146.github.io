@@ -1,4 +1,4 @@
-/* Main script — local-image aware (uses images in project root) */
+/* Main script — updated per your requests (no dipson1.jpg usage) */
 (() => {
   const $ = s => document.querySelector(s);
   const $$ = s => Array.from(document.querySelectorAll(s));
@@ -42,16 +42,12 @@
   /* MODALS + FOCUS TRAP */
   const projects = $$('.project');
   const modals = $$('.modal');
-
-  function focusables(root){
-    return Array.from(root.querySelectorAll('button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null);
-  }
+  function focusables(root){ return Array.from(root.querySelectorAll('button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null); }
   function openModal(modal, opener){
     modal.setAttribute('aria-hidden','false');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    const f = focusables(modal);
-    if (f.length) f[0].focus();
+    const f = focusables(modal); if (f.length) f[0].focus();
     function trap(e){
       if (e.key !== 'Tab') return;
       const list = focusables(modal);
@@ -60,8 +56,7 @@
       if (e.shiftKey && idx === 0) { e.preventDefault(); list[list.length-1].focus(); }
       else if (!e.shiftKey && idx === list.length - 1) { e.preventDefault(); list[0].focus(); }
     }
-    modal._trap = trap;
-    window.addEventListener('keydown', trap);
+    modal._trap = trap; window.addEventListener('keydown', trap);
   }
   function closeModal(modal, opener){
     modal.setAttribute('aria-hidden','true');
@@ -168,6 +163,6 @@
   function escapeHtml(str){ return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
   function nl2br(s){ return s.replace(/\n/g,'<br>'); }
 
-  /* Optional service worker registration if you add sw.js */
+  /* Optional service worker registration */
   if('serviceWorker' in navigator){ navigator.serviceWorker?.register('/sw.js').catch(()=>{}); }
 })();
