@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dipson Nepal • Portfolio</title>
-  <meta name="description" content="Dipson Nepal — Web Developer. Portfolio showcasing Weather, Tasks, Blog, Snake and Calculator." />
+  <title>Dipson Nepal — Portfolio</title>
+  <meta name="description" content="Dipson Nepal — Web Developer portfolio with interactive demos." />
   <link rel="preload" href="dipson2.jpg" as="image">
   <link rel="preload" href="Weather.png" as="image">
   <link rel="preload" href="Todo.png" as="image">
   <link rel="preload" href="MiniBlog.png" as="image">
   <link rel="preload" href="Snake.png" as="image">
   <link rel="preload" href="Calculator.png" as="image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- TOPBAR -->
   <header class="topbar" role="banner">
     <div class="container topbar-inner">
       <nav class="nav" role="navigation" aria-label="Main">
@@ -35,13 +36,12 @@
   <main id="main">
     <!-- HERO -->
     <section id="hero" class="hero" aria-labelledby="hero-title">
-      <div class="hero-overlay"></div>
+      <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <div class="hero-left" tabindex="0">
-          <h1 id="hero-title"><span class="accent">Dipson Nepal</span></h1>
-          <p class="lead">I make clean, fast web apps and delightful UX. I love small, useful projects that teach something.</p>
+        <div class="hero-left">
+          <h1 id="hero-title">Hi — I'm <span class="accent">Dipson Nepal</span></h1>
+          <p class="lead">I build clean, fast web apps and delightful micro-interactions.</p>
 
-          <!-- Single tech badges block above CTAs -->
           <div class="skills-badges" aria-hidden="false">
             <span class="skill">HTML</span>
             <span class="skill">CSS</span>
@@ -50,8 +50,8 @@
             <span class="skill">Design</span>
           </div>
 
-          <!-- Typing (restored, only safe words) -->
-          <div class="typing-wrap"><span id="typing" class="typing" aria-live="polite"></span></div>
+          <!-- Typing animation -->
+          <p id="typing" class="typing" aria-live="polite"></p>
 
           <div class="cta">
             <a class="btn primary" href="#projects">See Projects</a>
@@ -59,26 +59,25 @@
           </div>
         </div>
 
-        <!-- Right: useful highlights card replacing the big portrait -->
         <aside class="hero-right" aria-label="Highlights">
           <div class="highlights-card">
             <div class="hc-header">
               <svg class="avatar" viewBox="0 0 100 100" aria-hidden="true">
-                <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c83ff"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
-                <rect rx="12" width="100" height="100" fill="url(#g)"></rect>
-                <text x="50" y="60" text-anchor="middle" font-size="40" fill="#fff" font-family="Inter, Arial">DN</text>
+                <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#7c83ff"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
+                <rect rx="14" width="100" height="100" fill="url(#g1)"></rect>
+                <text x="50" y="58" font-size="44" text-anchor="middle" fill="#fff" font-family="Inter, Arial">DN</text>
               </svg>
               <div>
                 <h3>Dipson Nepal</h3>
                 <p class="muted small">Web Developer & Designer</p>
-                <a class="small" href="#contact">Say hello →</a>
+                <a class="smalllink" href="#contact">Say hello →</a>
               </div>
             </div>
 
             <div class="hc-stats" aria-hidden="true">
-              <div class="stat"><strong>5+</strong><span>Projects</span></div>
+              <div class="stat"><strong>5+</strong><span>Featured</span></div>
               <div class="stat"><strong>3+</strong><span>Years</span></div>
-              <div class="stat"><strong>100%</strong><span>Client-focused</span></div>
+              <div class="stat"><strong>100%</strong><span>Focus</span></div>
             </div>
           </div>
         </aside>
@@ -89,32 +88,32 @@
     <section id="projects" class="panel" aria-labelledby="projects-title">
       <div class="container">
         <h2 id="projects-title">Featured Projects</h2>
-        <p class="muted">Interactive demos — click any card to open the live app modal.</p>
+        <p class="muted">Interactive demos — click any card to open the live app modal. All projects run client-side.</p>
 
         <div class="projects-grid" role="list">
-          <article class="project" role="listitem" data-modal="m-weather" tabindex="0" aria-describedby="p-weather-desc">
-            <div class="project-media"><img src="Weather.png" alt="Weather app logo" class="proj-thumb"></div>
-            <div class="project-body"><h3>Weather App</h3><p id="p-weather-desc">Search city names to get current weather via Open-Meteo (no API key).</p></div>
+          <article class="project" role="listitem" data-modal="m-weather" tabindex="0">
+            <div class="project-media"><img src="Weather.png" alt="Weather App" class="proj-thumb"></div>
+            <div class="project-body"><h3>Weather App</h3><p>Search city names to get current weather via Open-Meteo (no API key).</p></div>
           </article>
 
-          <article class="project" role="listitem" data-modal="m-tasks" tabindex="0" aria-describedby="p-tasks-desc">
-            <div class="project-media"><img src="Todo.png" alt="Task manager logo" class="proj-thumb"></div>
-            <div class="project-body"><h3>Task Manager</h3><p id="p-tasks-desc">Add, edit, schedule and persist tasks locally.</p></div>
+          <article class="project" role="listitem" data-modal="m-tasks" tabindex="0">
+            <div class="project-media"><img src="Todo.png" alt="Task Manager" class="proj-thumb"></div>
+            <div class="project-body"><h3>Task Manager</h3><p>Add, edit, delete and persist tasks locally.</p></div>
           </article>
 
-          <article class="project" role="listitem" data-modal="m-blog" tabindex="0" aria-describedby="p-blog-desc">
-            <div class="project-media"><img src="MiniBlog.png" alt="Mini blog logo" class="proj-thumb"></div>
-            <div class="project-body"><h3>Mini Blog</h3><p id="p-blog-desc">Create, read, delete posts client-side with categories.</p></div>
+          <article class="project" role="listitem" data-modal="m-blog" tabindex="0">
+            <div class="project-media"><img src="MiniBlog.png" alt="Mini Blog" class="proj-thumb"></div>
+            <div class="project-body"><h3>Mini Blog</h3><p>Create, read, delete posts client-side with categories.</p></div>
           </article>
 
-          <article class="project" role="listitem" data-modal="m-snake" tabindex="0" aria-describedby="p-snake-desc">
-            <div class="project-media"><img src="Snake.png" alt="Snake logo" class="proj-thumb"></div>
-            <div class="project-body"><h3>Snake Game</h3><p id="p-snake-desc">Classic snake built on canvas. Arrow keys to play.</p></div>
+          <article class="project" role="listitem" data-modal="m-snake" tabindex="0">
+            <div class="project-media"><img src="Snake.png" alt="Snake Game" class="proj-thumb"></div>
+            <div class="project-body"><h3>Snake Game</h3><p>Classic snake on canvas — arrow keys to play.</p></div>
           </article>
 
-          <article class="project" role="listitem" data-modal="m-calc" tabindex="0" aria-describedby="p-calc-desc">
-            <div class="project-media"><img src="Calculator.png" alt="Calculator logo" class="proj-thumb"></div>
-            <div class="project-body"><h3>Calculator</h3><p id="p-calc-desc">Responsive calculator with keyboard support and safe parsing.</p></div>
+          <article class="project" role="listitem" data-modal="m-calc" tabindex="0">
+            <div class="project-media"><img src="Calculator.png" alt="Calculator" class="proj-thumb"></div>
+            <div class="project-body"><h3>Calculator</h3><p>Responsive calculator with keyboard support and safe parsing.</p></div>
           </article>
         </div>
       </div>
@@ -125,12 +124,12 @@
       <div class="container about-grid">
         <div>
           <h2 id="about-title">About</h2>
-          <p class="muted">I build modern, accessible interfaces and small web tools. Simplicity, performance and micro-interactions matter to me.</p>
+          <p class="muted">I build modern, accessible interfaces and small web tools. Simplicity and performance are key.</p>
         </div>
         <div class="contact-card">
           <h3>Contact</h3>
-          <p class="muted">Want to work together?</p>
-          <a class="btn" href="mailto:youremail@example.com">Email me</a>
+          <p class="muted">Let's build something.</p>
+          <a class="btn" href="mailto:youremail@example.com">Email</a>
         </div>
       </div>
     </section>
@@ -141,7 +140,7 @@
         <div>
           <h2 id="contact-title">Get in touch</h2>
           <p class="muted">DM on Instagram or send an email.</p>
-          <div class="socials"><a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener">Instagram</a> <a href="mailto:youremail@example.com">Email</a></div>
+          <div class="socials"><a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener">Instagram</a> • <a href="mailto:youremail@example.com">Email</a></div>
         </div>
         <form id="contact-form" class="contact-form" aria-label="Contact form">
           <input id="cf-name" placeholder="Your name" required>
@@ -157,57 +156,52 @@
     <div class="container"><small>© <span id="year"></span> Dipson Nepal — Crafted with curiosity.</small></div>
   </footer>
 
-  <!-- Modals: Weather, Tasks, Blog, Snake, Calculator -->
+  <!-- MODALS -->
   <div id="m-weather" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-weather-title">
-    <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-content">
+      <button class="close" aria-label="Close">✕</button>
       <h3 id="m-weather-title">Weather App</h3>
-      <p class="muted">Open-Meteo geocoding & current weather (no key).</p>
-      <form id="weatherForm" class="form-inline"><input id="weatherCity" placeholder="City (e.g., Kathmandu)" required><button class="btn" type="submit">Lookup</button></form>
+      <form id="weatherForm" class="form-inline"><input id="weatherCity" placeholder="City (e.g., Kathmandu)" required><button class="btn">Lookup</button></form>
       <div id="weatherOutput" class="panel-output" aria-live="polite"></div>
     </div>
   </div>
 
   <div id="m-tasks" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-tasks-title">
-    <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-content">
+      <button class="close" aria-label="Close">✕</button>
       <h3 id="m-tasks-title">Task Manager</h3>
-      <form id="taskForm" class="form-inline"><input id="newTask" placeholder="Task title" required><input id="newDue" type="date"><button class="btn" type="submit">Add</button></form>
+      <form id="taskForm" class="form-inline"><input id="newTask" placeholder="Task title" required><input id="newDue" type="date"><button class="btn">Add</button></form>
       <ul id="taskList" class="list"></ul>
     </div>
   </div>
 
   <div id="m-blog" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-blog-title">
-    <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-content">
+      <button class="close" aria-label="Close">✕</button>
       <h3 id="m-blog-title">Mini Blog</h3>
       <form id="postForm" class="form-col">
         <input id="postTitle" placeholder="Title" required>
         <select id="postCategory"><option>General</option><option>Tech</option><option>Life</option></select>
         <textarea id="postBody" rows="6" placeholder="Write your post..." required></textarea>
-        <button class="btn" type="submit">Publish</button>
+        <button class="btn">Publish</button>
       </form>
       <div id="posts" class="panel-output"></div>
     </div>
   </div>
 
   <div id="m-snake" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-snake-title">
-    <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-content">
+      <button class="close" aria-label="Close">✕</button>
       <h3 id="m-snake-title">Snake</h3>
-      <div class="snake-controls">
-        <label>Speed <input id="snakeSpeed" type="range" min="4" max="18" value="10"></label>
-        <button class="btn" id="snakeStart">Start</button>
-        <button class="btn ghost" id="snakeReset">Reset</button>
-      </div>
-      <canvas id="snakeCanvas" width="360" height="360" tabindex="0" aria-label="Snake game"></canvas>
-      <div class="muted small">Use arrow keys. Score: <span id="snakeScore">0</span></div>
+      <div class="snake-controls"><label>Speed <input id="snakeSpeed" type="range" min="4" max="18" value="10"></label><button class="btn" id="snakeStart">Start</button><button class="btn ghost" id="snakeReset">Reset</button></div>
+      <canvas id="snakeCanvas" width="360" height="360" aria-label="Snake game"></canvas>
+      <div class="muted small">Score: <span id="snakeScore">0</span></div>
     </div>
   </div>
 
   <div id="m-calc" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-calc-title">
-    <div class="modal-panel">
-      <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-content">
+      <button class="close" aria-label="Close">✕</button>
       <h3 id="m-calc-title">Calculator</h3>
       <div class="calc">
         <input id="calcDisplay" class="calc-display" readonly aria-label="Calculator display">
