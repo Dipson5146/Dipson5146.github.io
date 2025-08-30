@@ -4,69 +4,92 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dipson Nepal • Portfolio</title>
-  <meta name="description" content="Dipson Nepal — Web Developer. Portfolio showcasing Weather App, Task Manager, Blog, Snake Game and Calculator.">
+  <meta name="description" content="Dipson Nepal — Web Developer. Portfolio showcasing Weather, Tasks, Blog, Snake and Calculator." />
   <link rel="icon" href="/favicon.ico">
+
+  <!-- preload local images (paths are root-level files per your repo screenshot) -->
   <link rel="preload" href="dipson1.jpg" as="image">
   <link rel="preload" href="dipson2.jpg" as="image">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Topbar: minimal (no top-left brand per your request) -->
   <header class="topbar" role="banner">
     <div class="container topbar-inner">
-      <a class="brand" href="#hero" aria-label="Go to home">
-        <img src="dipson1.jpg" alt="Dipson Nepal portrait 1" loading="lazy"
-             onerror="this.onerror=null;this.src='https://via.placeholder.com/64x64.png?text=DN'">
-        <img class="alt" src="dipson2.jpg" alt="Dipson Nepal portrait 2" loading="lazy"
-             onerror="this.onerror=null;this.src='https://via.placeholder.com/64x64.png?text=DN'">
-        <span class="brand-text">Dipson Nepal</span>
-      </a>
-
       <nav class="nav" role="navigation" aria-label="Main">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navList" title="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
+
         <ul id="navList" class="nav-list">
           <li><a href="#hero">Home</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
         <button id="themeToggle" class="theme-btn" aria-pressed="false" title="Toggle theme">🌓</button>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- HERO -->
+    <!-- HERO: dipson2.jpg in background with greyish-white gradient overlay -->
     <section id="hero" class="hero panel" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div class="hero-left">
-          <h1 id="hero-title"><span class="accent">Dipson Nepal</span></h1>
+          <h1 id="hero-title">Hi — I'm <span class="accent">Dipson Nepal</span></h1>
           <p class="lead">I make clean, fast web apps and delightful UX. I love small, useful projects that teach something.</p>
-          <p class="typing" aria-live="polite" id="typing">Web Developer • Coder • Learner</p>
+
+          <!-- Skills: HTML & CSS shown above CTA as requested -->
+          <div class="skills-badges" aria-hidden="false">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React-ready</span>
+            <span class="skill">Design</span>
+          </div>
+
           <div class="cta">
             <a class="btn primary" href="#projects">See Projects</a>
             <a class="btn ghost" href="#contact">Get in touch</a>
           </div>
-          <div class="skills">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React-ready</span><span>Design</span>
-          </div>
+
+          <div class="muted small" style="margin-top:12px">HTML • CSS • JavaScript • React-ready • Design</div>
         </div>
-        <div class="hero-right">
-          <div class="card-profile">
-            <img src="dipson1.jpg" alt="Dipson portrait large" loading="lazy"
-                 onerror="this.onerror=null;this.src='https://via.placeholder.com/320x320.png?text=DN'">
-            <div class="card-overlay">
-              <h3>Dipson Nepal</h3>
-              <p>Web Developer & Designer</p>
-              <a class="small" href="#contact">Say hello →</a>
+
+        <!-- RIGHT: Highlights card (replaces the big pictured card) -->
+        <aside class="hero-right" aria-label="Highlights">
+          <div class="highlights-card">
+            <div class="hc-header">
+              <img src="dipson1.jpg" alt="Dipson portrait" loading="lazy"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/140x140.png?text=DN'">
+              <div>
+                <h3>Dipson Nepal</h3>
+                <p class="muted small">Web Developer & Designer</p>
+                <a class="small" href="#contact">Say hello →</a>
+              </div>
+            </div>
+
+            <div class="hc-stats">
+              <div class="stat">
+                <strong>5+</strong>
+                <span>Featured Projects</span>
+              </div>
+              <div class="stat">
+                <strong>3+</strong>
+                <span>Years Learning</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Client-focused</span>
+              </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -77,11 +100,10 @@
         <p class="muted">Interactive demos below — click any card to open the live app. Each app runs entirely client-side.</p>
 
         <div class="grid projects-grid" role="list">
-          <!-- Project card: Weather -->
+          <!-- Weather (uses Weather.png) -->
           <article class="project" role="listitem" data-modal="m-weather" tabindex="0" aria-describedby="p-weather-desc">
             <div class="project-media">
-              <svg class="proj-svg" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 14a6 6 0 0111.996.3A4.5 4.5 0 1116 7h-1.26A4 4 0 006 11.74V12z"></path></svg>
-              <img src="https://via.placeholder.com/600x320.png?text=Weather+App" alt="Weather app thumbnail" loading="lazy">
+              <img class="proj-thumb" src="Weather.png" alt="Weather project logo" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Weather App</h3>
@@ -90,11 +112,10 @@
             </div>
           </article>
 
-          <!-- Task Manager -->
+          <!-- Tasks (uses Todo.png) -->
           <article class="project" role="listitem" data-modal="m-tasks" tabindex="0" aria-describedby="p-tasks-desc">
             <div class="project-media">
-              <svg class="proj-svg" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 11l3 3L22 4"></path></svg>
-              <img src="https://via.placeholder.com/600x320.png?text=Tasks" alt="Task manager thumbnail" loading="lazy">
+              <img class="proj-thumb" src="Todo.png" alt="Task manager logo" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Task Manager</h3>
@@ -103,11 +124,10 @@
             </div>
           </article>
 
-          <!-- Blog -->
+          <!-- Blog (uses MiniBlog.png) -->
           <article class="project" role="listitem" data-modal="m-blog" tabindex="0" aria-describedby="p-blog-desc">
             <div class="project-media">
-              <svg class="proj-svg" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 7h16v12H4z"></path></svg>
-              <img src="https://via.placeholder.com/600x320.png?text=Blog" alt="Blog thumbnail" loading="lazy">
+              <img class="proj-thumb" src="MiniBlog.png" alt="Blog logo" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Mini Blog</h3>
@@ -116,11 +136,10 @@
             </div>
           </article>
 
-          <!-- Snake -->
+          <!-- Snake (uses Snake.png) -->
           <article class="project" role="listitem" data-modal="m-snake" tabindex="0" aria-describedby="p-snake-desc">
             <div class="project-media">
-              <svg class="proj-svg" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 12c0-3 5-5 6-5s6 2 6 5-3 5-6 5H8"></path></svg>
-              <img src="https://via.placeholder.com/600x320.png?text=Snake+Game" alt="Snake game thumbnail" loading="lazy">
+              <img class="proj-thumb" src="Snake.png" alt="Snake logo" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Snake Game</h3>
@@ -129,11 +148,10 @@
             </div>
           </article>
 
-          <!-- Calculator -->
+          <!-- Calculator (uses Calculator.png) -->
           <article class="project" role="listitem" data-modal="m-calc" tabindex="0" aria-describedby="p-calc-desc">
             <div class="project-media">
-              <svg class="proj-svg" width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h12v20H6z"></path></svg>
-              <img src="https://via.placeholder.com/600x320.png?text=Calculator" alt="Calculator thumbnail" loading="lazy">
+              <img class="proj-thumb" src="Calculator.png" alt="Calculator logo" loading="lazy">
             </div>
             <div class="project-body">
               <h3>Calculator</h3>
@@ -141,7 +159,7 @@
               <div class="project-tags"><span>Utility</span><span>JS</span></div>
             </div>
           </article>
-        </div> <!-- .projects-grid -->
+        </div>
       </div>
     </section>
 
@@ -157,6 +175,7 @@
             <li>Interests: web performance, UX design, learning new tech</li>
           </ul>
         </div>
+
         <div class="contact-card">
           <h3>Contact</h3>
           <p class="muted">Let's build something together.</p>
@@ -177,6 +196,7 @@
             <a href="#" id="download-cv">Download CV</a>
           </div>
         </div>
+
         <form id="contact-form" class="contact-form" aria-label="Contact form">
           <input id="cf-name" placeholder="Your name" required>
           <input id="cf-email" type="email" placeholder="Your email" required>
@@ -194,7 +214,6 @@
   </footer>
 
   <!-- Modals (apps) -->
-  <!-- Weather modal -->
   <div id="m-weather" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-weather-title">
     <div class="modal-panel">
       <button class="modal-close" aria-label="Close">✕</button>
@@ -208,7 +227,6 @@
     </div>
   </div>
 
-  <!-- Tasks modal -->
   <div id="m-tasks" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-tasks-title">
     <div class="modal-panel">
       <button class="modal-close" aria-label="Close">✕</button>
@@ -222,7 +240,6 @@
     </div>
   </div>
 
-  <!-- Blog modal -->
   <div id="m-blog" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-blog-title">
     <div class="modal-panel">
       <button class="modal-close" aria-label="Close">✕</button>
@@ -237,7 +254,6 @@
     </div>
   </div>
 
-  <!-- Snake modal -->
   <div id="m-snake" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-snake-title">
     <div class="modal-panel">
       <button class="modal-close" aria-label="Close">✕</button>
@@ -252,16 +268,13 @@
     </div>
   </div>
 
-  <!-- Calculator modal -->
   <div id="m-calc" class="modal" role="dialog" aria-hidden="true" aria-labelledby="m-calc-title">
     <div class="modal-panel">
       <button class="modal-close" aria-label="Close">✕</button>
       <h3 id="m-calc-title">Calculator</h3>
       <div class="calc">
         <input id="calcDisplay" class="calc-display" readonly aria-label="Calculator display">
-        <div class="calc-grid" role="group" aria-label="Calculator buttons">
-          <!-- buttons generated via JS -->
-        </div>
+        <div class="calc-grid" role="group" aria-label="Calculator buttons"></div>
       </div>
     </div>
   </div>
