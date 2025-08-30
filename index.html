@@ -1,210 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dipson Nepal — Portfolio</title>
-  <meta name="description" content="Dipson Nepal — Web Developer. Projects: Weather App, Task Manager, Blog, Snake Game, Calculator." />
-  <meta property="og:title" content="Dipson Nepal — Portfolio" />
-  <meta property="og:description" content="Coding, design, and small delightful projects." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Dipson+Nepal+Portfolio" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Preload hero image & critical CSS (if you use a local font, preload it here) -->
-  <link rel="preload" as="image" href="dipson1.jpg" />
-
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <!-- skip link for screen readers / keyboard users -->
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="bg-gray-50 text-gray-800">
 
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <div class="brand">
-        <a href="#hero" class="logo" aria-label="Dipson Nepal homepage">
-          <img src="dipson1.jpg" alt="Portrait of Dipson Nepal" loading="lazy" width="56" height="56">
-          <span class="name">Dipson Nepal</span>
-        </a>
-      </div>
-
-      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Primary navigation">
-        <button id="nav-toggle" class="nav-toggle" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle menu">
-          <span class="hamburger"></span>
-        </button>
-        <ul id="nav-list" class="nav-list">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+  <!-- Navbar -->
+  <header class="bg-black text-white sticky top-0 shadow-md z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#" class="text-xl font-bold tracking-wide">MyPortfolio</a>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#" class="hover:text-gray-300">Home</a>
+        <a href="#projects" class="hover:text-gray-300">Projects</a>
+        <a href="#contact" class="hover:text-gray-300">Contact</a>
       </nav>
+      <button class="md:hidden px-2 py-1 border rounded">☰</button>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
-    <!-- HERO -->
-    <section id="hero" class="panel" aria-labelledby="hero-title" role="region">
-      <div class="hero-inner">
-        <h1 id="hero-title">Dipson Nepal</h1>
-        <p class="lead"><span id="typing" aria-live="polite"></span></p>
-        <p>Passionate about coding, design, and building things that matter.</p>
+  <!-- Hero Section -->
+  <section class="text-center py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <h1 class="text-3xl md:text-5xl font-bold">Welcome to My Projects</h1>
+    <p class="mt-3 text-lg md:text-xl">A collection of my web apps and experiments</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-900">Projects</h2>
+    
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Project Card -->
+      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
+        <h3 class="text-xl font-semibold mb-2">🌦️ Weather App</h3>
+        <p class="text-gray-600">Fetches live weather data from an API and displays temperature & forecast.</p>
       </div>
-    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="panel" aria-labelledby="projects-title" role="region">
-      <h2 id="projects-title">My Projects</h2>
-      <div class="projects-grid">
-        <!-- Project card 1 -->
-        <article class="project-card" data-modal="modal1" tabindex="0" aria-describedby="proj1-desc">
-          <div class="card-media">
-            <picture>
-              <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Weather+App 400w, https://via.placeholder.com/800x400.webp?text=Weather+App 800w" sizes="(max-width:600px) 100vw, 400px">
-              <img src="https://via.placeholder.com/400x200.png?text=Weather+App" alt="Weather App screenshot" loading="lazy" width="400" height="200">
-            </picture>
-          </div>
-          <div class="card-content">
-            <h3>Weather App</h3>
-            <p id="proj1-desc">Fetches live weather data from an API and displays temperature and forecast.</p>
-          </div>
-        </article>
-
-        <!-- Project card 2 -->
-        <article class="project-card" data-modal="modal2" tabindex="0" aria-describedby="proj2-desc">
-          <picture>
-            <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Task+Manager 400w, https://via.placeholder.com/800x400.webp?text=Task+Manager 800w" sizes="(max-width:600px) 100vw, 400px">
-            <img src="https://via.placeholder.com/400x200.png?text=Task+Manager" alt="Task Manager screenshot" loading="lazy" width="400" height="200">
-          </picture>
-          <div class="card-content">
-            <h3>Task Manager</h3>
-            <p id="proj2-desc">To-do list app with add/edit/delete and localStorage persistence.</p>
-          </div>
-        </article>
-
-        <!-- Project card 3 -->
-        <article class="project-card" data-modal="modal3" tabindex="0" aria-describedby="proj3-desc">
-          <picture>
-            <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Blog+Website 400w, https://via.placeholder.com/800x400.webp?text=Blog+Website 800w" sizes="(max-width:600px) 100vw, 400px">
-            <img src="https://via.placeholder.com/400x200.png?text=Blog+Website" alt="Blog Website screenshot" loading="lazy" width="400" height="200">
-          </picture>
-          <div class="card-content">
-            <h3>Blog Website</h3>
-            <p id="proj3-desc">Multi-page blog with categories and a clean layout.</p>
-          </div>
-        </article>
-
-        <!-- Project card 4 -->
-        <article class="project-card" data-modal="modal4" tabindex="0" aria-describedby="proj4-desc">
-          <picture>
-            <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Snake+Game 400w, https://via.placeholder.com/800x400.webp?text=Snake+Game 800w" sizes="(max-width:600px) 100vw, 400px">
-            <img src="https://via.placeholder.com/400x200.png?text=Snake+Game" alt="Snake Game screenshot" loading="lazy" width="400" height="200">
-          </picture>
-          <div class="card-content">
-            <h3>Snake Game</h3>
-            <p id="proj4-desc">Classic snake game with scoring, built in vanilla JavaScript.</p>
-          </div>
-        </article>
-
-        <!-- Project card 5 -->
-        <article class="project-card" data-modal="modal5" tabindex="0" aria-describedby="proj5-desc">
-          <picture>
-            <source type="image/webp" srcset="https://via.placeholder.com/400x200.webp?text=Calculator 400w, https://via.placeholder.com/800x400.webp?text=Calculator 800w" sizes="(max-width:600px) 100vw, 400px">
-            <img src="https://via.placeholder.com/400x200.png?text=Calculator" alt="Calculator App screenshot" loading="lazy" width="400" height="200">
-          </picture>
-          <div class="card-content">
-            <h3>Calculator App</h3>
-            <p id="proj5-desc">Stylish calculator for basic arithmetic operations.</p>
-          </div>
-        </article>
+      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
+        <h3 class="text-xl font-semibold mb-2">✅ Task Manager</h3>
+        <p class="text-gray-600">A to-do list app with add, edit, delete, and save to local storage.</p>
       </div>
-    </section>
 
-    <!-- Modals (hidden, accessible dialogs) -->
-    <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal1-title">
-      <div class="modal-content" role="document">
-        <button class="close-btn" aria-label="Close modal">&times;</button>
-        <img src="https://via.placeholder.com/800x400.png?text=Weather+App" alt="Weather App full screenshot" loading="lazy">
-        <h3 id="modal1-title">Weather App</h3>
-        <p>Live weather app that uses OpenWeather API to display forecasts and current conditions.</p>
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">View Code</a>
-        </div>
+      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
+        <h3 class="text-xl font-semibold mb-2">📝 Blog Website</h3>
+        <p class="text-gray-600">Personal blog with posts, categories, and a clean layout.</p>
       </div>
+
+      <div class="bg-white rounded-2xl shadow hover:shadow-xl transition p-6">
+        <h3 class="text-xl font-semibold mb-2">🎮 Snake Game</h3>
+        <p class="text-gray-600">Classic snake game with scoring system.</p>
+      </div>
+
     </div>
+  </section>
 
-    <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal2-title">
-      <div class="modal-content" role="document">
-        <button class="close-btn" aria-label="Close modal">&times;</button>
-        <img src="https://via.placeholder.com/800x400.png?text=Task+Manager" alt="Task Manager full screenshot" loading="lazy">
-        <h3 id="modal2-title">Task Manager</h3>
-        <p>Manage tasks, edit them, and persist to localStorage for offline use.</p>
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">View Code</a>
-        </div>
-      </div>
-    </div>
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-100 py-12 text-center">
+    <h2 class="text-2xl font-bold mb-4">Contact</h2>
+    <p class="text-gray-600 mb-6">Feel free to reach out for collaborations or project discussions!</p>
+    <a href="mailto:youremail@example.com" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">Say Hello</a>
+  </section>
 
-    <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal3-title">
-      <div class="modal-content" role="document">
-        <button class="close-btn" aria-label="Close modal">&times;</button>
-        <img src="https://via.placeholder.com/800x400.png?text=Blog+Website" alt="Blog Website full screenshot" loading="lazy">
-        <h3 id="modal3-title">Blog Website</h3>
-        <p>Personal blog with posts, categories, and a readable layout.</p>
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">View Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal4-title">
-      <div class="modal-content" role="document">
-        <button class="close-btn" aria-label="Close modal">&times;</button>
-        <img src="https://via.placeholder.com/800x400.png?text=Snake+Game" alt="Snake Game full screenshot" loading="lazy">
-        <h3 id="modal4-title">Snake Game</h3>
-        <p>Classic snake game with scoring and levels, implemented with requestAnimationFrame.</p>
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">View Code</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal5-title">
-      <div class="modal-content" role="document">
-        <button class="close-btn" aria-label="Close modal">&times;</button>
-        <img src="https://via.placeholder.com/800x400.png?text=Calculator" alt="Calculator App full screenshot" loading="lazy">
-        <h3 id="modal5-title">Calculator App</h3>
-        <p>Simple and elegant calculator for quick arithmetic tasks.</p>
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">View Code</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTACT -->
-    <section id="contact" class="panel" aria-labelledby="contact-title" role="region">
-      <h2 id="contact-title">Contact Me</h2>
-      <p>Let's connect! You can find me on:</p>
-      <div class="socials">
-        <a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="mailto:youremail@example.com">Email</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <small>© <span id="year"></span> Dipson Nepal — Built with care.</small>
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-6 text-center text-sm">
+    © 2025 MyPortfolio. All rights reserved.
   </footer>
 
-  <!-- Main JS: deferred for performance -->
-  <script src="script.js" defer></script>
 </body>
 </html>
