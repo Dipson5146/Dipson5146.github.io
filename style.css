@@ -26,7 +26,8 @@ url('dipson2.jpg');background-size:cover;background-position:center right}
 .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:72px 0}
 .hero-left h1{font-size:2.2rem;margin:0 0 8px;color:#071022}
 .lead{margin:0 0 12px;color:#334155}
-.accent{background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;color:transparent;font-weight:800}
+.accent{background:linear-gradient(90deg,var(--accent2),var(--accent));background-clip: text;color: transparent;
+  text-shadow: none;-webkit-background-clip:text;color:transparent;font-weight:800}
 
 /* tech badges */
 .tech-badges{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
