@@ -6,17 +6,13 @@
   <title>Dipson Nepal — Portfolio</title>
   <meta name="description" content="Dipson Nepal — Web Developer portfolio with interactive demos." />
   <link rel="preload" href="dipson2.jpg" as="image">
-  <link rel="preload" href="Weather.png" as="image">
-  <link rel="preload" href="Todo.png" as="image">
-  <link rel="preload" href="MiniBlog.png" as="image">
-  <link rel="preload" href="Snake.png" as="image">
-  <link rel="preload" href="Calculator.png" as="image">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <!-- Skip link (visually hidden until focused) -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="topbar">
+  <header class="topbar" role="banner">
     <div class="wrap topbar-inner">
       <div class="brand">Dipson Nepal</div>
       <nav class="nav" aria-label="Main navigation">
@@ -27,9 +23,10 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
       <div class="controls">
-        <button id="themeToggle" title="Toggle theme" aria-pressed="false">🌙</button>
-        <button id="menuToggle" aria-expanded="false" class="menu-btn" title="Toggle menu">☰</button>
+        <button id="themeToggle" aria-pressed="false" class="icon-btn" title="Toggle theme">🌙</button>
+        <button id="menuToggle" aria-expanded="false" class="icon-btn menu-btn" title="Toggle menu" aria-label="Open menu">☰</button>
       </div>
     </div>
   </header>
@@ -40,16 +37,19 @@
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-left">
-          <h1 id="hero-heading">Hi — I'm <span class="accent">Dipson Nepal</span></h1>
+          <h1 id="hero-heading">
+            Hi — I'm <span class="accent">Dipson Nepal</span>
+            <span class="h1-anim" aria-hidden="true"></span>
+          </h1>
           <p class="lead">I make fast, accessible web apps and small delightful UIs.</p>
 
-          <!-- Single tech badges above CTAs -->
+          <!-- Tech badges -->
           <div class="tech-badges" aria-hidden="false">
             <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React-ready</span><span>Design</span>
           </div>
 
           <!-- Typing animation -->
-          <p id="typing" class="typing" aria-live="polite"></p>
+          <p class="typing" id="typing" aria-live="polite"></p>
 
           <div class="hero-ctas">
             <a class="btn primary" href="#projects">See Projects</a>
@@ -61,11 +61,8 @@
           <div class="card">
             <div class="card-head">
               <div class="svg-avatar" aria-hidden="true">
-                <!-- simple gradient square avatar -->
                 <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c83ff"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient>
-                  </defs>
+                  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c83ff"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
                   <rect rx="14" width="100" height="100" fill="url(#g)"></rect>
                   <text x="50" y="60" font-size="40" text-anchor="middle" fill="#fff" font-family="Inter, Arial">DN</text>
                 </svg>
@@ -76,6 +73,7 @@
                 <a class="smalllink" href="#contact">Say hello →</a>
               </div>
             </div>
+
             <div class="card-stats">
               <div><strong>5+</strong><span>Projects</span></div>
               <div><strong>3+</strong><span>Years</span></div>
@@ -89,11 +87,10 @@
     <!-- PROJECTS -->
     <section id="projects" class="section" aria-labelledby="projects-heading">
       <div class="wrap">
-        <h2 id="projects-heading">Featured Projects</h2>
+        <h2 id="projects-heading" class="section-title">Featured Projects</h2>
         <p class="muted">Click a card to open the demo. Demos run client-side.</p>
 
         <div class="grid projects-grid" role="list">
-          <!-- project card: includes small SVG icon inline (as requested) -->
           <article class="project" role="listitem" data-modal="modal-weather" tabindex="0">
             <div class="project-icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M6 14a6 6 0 1 1 12 0H6z"/></svg>
@@ -104,36 +101,28 @@
           </article>
 
           <article class="project" role="listitem" data-modal="modal-tasks" tabindex="0">
-            <div class="project-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11l2 2 4-4"/></svg>
-            </div>
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11l2 2 4-4"/></svg></div>
             <img src="Todo.png" class="thumb" alt="Task manager logo">
             <h3>Task Manager</h3>
             <p>Add, edit, schedule and persist tasks locally.</p>
           </article>
 
           <article class="project" role="listitem" data-modal="modal-blog" tabindex="0">
-            <div class="project-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v2H4zM4 10h10v2H4zM4 14h16v2H4z"/></svg>
-            </div>
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v2H4zM4 10h10v2H4zM4 14h16v2H4z"/></svg></div>
             <img src="MiniBlog.png" class="thumb" alt="Mini blog logo">
             <h3>Mini Blog</h3>
             <p>Client-side posts with create/read/delete and categories.</p>
           </article>
 
           <article class="project" role="listitem" data-modal="modal-snake" tabindex="0">
-            <div class="project-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h16v2H4z"/></svg>
-            </div>
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h16v2H4z"/></svg></div>
             <img src="Snake.png" class="thumb" alt="Snake game logo">
             <h3>Snake Game</h3>
             <p>Classic canvas snake. Adjustable speed, keyboard controls.</p>
           </article>
 
           <article class="project" role="listitem" data-modal="modal-calc" tabindex="0">
-            <div class="project-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v16H4zM7 7h3v3H7z"/></svg>
-            </div>
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v16H4zM7 7h3v3H7z"/></svg></div>
             <img src="Calculator.png" class="thumb" alt="Calculator logo">
             <h3>Calculator</h3>
             <p>Responsive calculator with keyboard support and safe parsing.</p>
@@ -146,12 +135,12 @@
     <section id="about" class="section" aria-labelledby="about-heading">
       <div class="wrap about-grid">
         <div>
-          <h2 id="about-heading">About</h2>
-          <p class="muted">I build modern, accessible interfaces and small web tools. My priorities: clarity, performance, good UX.</p>
+          <h2 id="about-heading" class="section-title">About</h2>
+          <p class="muted">I build modern, accessible interfaces and small web tools. Clarity, performance, and tidy UX are my priorities.</p>
         </div>
         <div class="card contact-card">
           <h3>Contact</h3>
-          <p class="muted">Email me at <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+          <p class="muted">Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
         </div>
       </div>
     </section>
@@ -160,10 +149,11 @@
     <section id="contact" class="section" aria-labelledby="contact-heading">
       <div class="wrap contact-grid">
         <div>
-          <h2 id="contact-heading">Get in touch</h2>
+          <h2 id="contact-heading" class="section-title">Get in touch</h2>
           <p class="muted">DM on Instagram or send an email.</p>
           <p><a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener">Instagram</a></p>
         </div>
+
         <form id="contact-form" class="card contact-form" aria-label="Contact form">
           <input id="cf-name" placeholder="Your name" required>
           <input id="cf-email" type="email" placeholder="Your email" required>
@@ -178,11 +168,11 @@
     <div class="wrap"><small>© <span id="year"></span> Dipson Nepal</small></div>
   </footer>
 
-  <!-- MODALS (one per project) -->
-  <div id="modal-weather" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-weather-title">
+  <!-- MODALS -->
+  <div id="modal-weather" class="modal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close modal">✕</button>
-      <h3 id="modal-weather-title">Weather App</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Weather App</h3>
       <form id="weather-form" class="row">
         <input id="weather-input" placeholder="City (e.g., Kathmandu)" required>
         <button class="btn" type="submit">Lookup</button>
@@ -191,10 +181,10 @@
     </div>
   </div>
 
-  <div id="modal-tasks" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-tasks-title">
+  <div id="modal-tasks" class="modal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close modal">✕</button>
-      <h3 id="modal-tasks-title">Task Manager</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Task Manager</h3>
       <form id="task-form" class="row">
         <input id="task-input" placeholder="New task title" required>
         <input id="task-due" type="date">
@@ -204,10 +194,10 @@
     </div>
   </div>
 
-  <div id="modal-blog" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-blog-title">
+  <div id="modal-blog" class="modal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close modal">✕</button>
-      <h3 id="modal-blog-title">Mini Blog</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Mini Blog</h3>
       <form id="post-form" class="col">
         <input id="post-title" placeholder="Title" required>
         <select id="post-cat"><option>General</option><option>Tech</option><option>Life</option></select>
@@ -218,10 +208,10 @@
     </div>
   </div>
 
-  <div id="modal-snake" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-snake-title">
+  <div id="modal-snake" class="modal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close modal">✕</button>
-      <h3 id="modal-snake-title">Snake</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Snake</h3>
       <div class="row snake-controls">
         <label>Speed <input id="snake-speed" type="range" min="4" max="18" value="10"></label>
         <button class="btn" id="snake-start">Start</button>
@@ -232,10 +222,10 @@
     </div>
   </div>
 
-  <div id="modal-calc" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-calc-title">
+  <div id="modal-calc" class="modal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="modal-close" aria-label="Close modal">✕</button>
-      <h3 id="modal-calc-title">Calculator</h3>
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Calculator</h3>
       <div class="calc">
         <input id="calc-display" class="calc-display" readonly aria-label="Calculator display">
         <div id="calc-grid" class="calc-grid" role="group" aria-label="Calculator buttons"></div>
