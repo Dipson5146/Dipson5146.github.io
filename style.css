@@ -2,7 +2,7 @@
   --bg:#0b1220; --card:#0f1726; --muted:#9aa8bf; --text:#e6eef8;
   --accent:#6ee7b7; --accent2:#7c83ff; --glass:rgba(255,255,255,0.03);
   --radius:12px; --container:1100px; --nav-h:72px; --ease:cubic-bezier(.2,.9,.3,1);
-  --hero-fade: 0.6; /* lower = clearer image; default near 0.6 */
+  --hero-fade: 0.6; /* lower = clearer image */
 }
 *{box-sizing:border-box}
 html{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;scroll-behavior:smooth}
@@ -30,7 +30,7 @@ a{color:inherit}
 .hero{
   position:relative;display:flex;align-items:center;min-height:72vh;
   background-image:
-    linear-gradient(90deg, rgba(255,255,255,calc(var(--hero-fade)*0.35)) 0%, rgba(245,245,245,calc(var(--hero-fade)*0.28)) 50%, rgba(245,245,245,calc(var(--hero-fade)*0.18)) 100%),
+    linear-gradient(90deg, rgba(255,255,255,0.28) 0%, rgba(245,245,245,0.22) 50%, rgba(245,245,245,0.14) 100%),
     url('dipson2.jpg');
   background-size:cover;background-position:center right;
 }
@@ -38,7 +38,16 @@ a{color:inherit}
 .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:72px 0}
 .hero-left h1{font-size:2.2rem;margin:0;color:#071022}
 .lead{margin:8px 0 12px;color:#334155}
-.accent{background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;color:transparent;font-weight:800}
+
+/* Accent text gradient (clip-to-text): include standard property + webkit + webkit-text-fill-color fallback */
+.accent{
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight:800;
+}
 
 /* h1 ornament: subtle animated underline */
 .h1-anim{
@@ -69,7 +78,7 @@ a{color:inherit}
 /* section titles */
 .section-title{display:inline-block;position:relative;padding-bottom:8px;margin-bottom:8px}
 .section-title::after{content:'';position:absolute;left:0;right:0;height:3px;border-radius:4px;background:linear-gradient(90deg,var(--accent2),var(--accent));transform-origin:left;transform:scaleX(0);transition:transform .7s var(--ease)}
-.section.active .section-title::after{transform:scaleX(1)} /* animated underline when section becomes active */
+.section.active .section-title::after{transform:scaleX(1)}
 
 /* projects grid (entrance animation: JS adds .in class; fallback: content visible) */
 .section{padding:48px 0}
