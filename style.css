@@ -39,7 +39,10 @@ body{
 .lead{color:var(--muted);margin:0 0 1rem}
 .tech-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem}
 .tech-badges span{background:var(--panel);padding:.25rem .45rem;border-radius:999px;color:var(--muted);font-size:.84rem}
-.typing{color:var(--muted);margin-top:.4rem}
+
+/* Typing (cursor) */
+.typing{color:var(--muted);margin-top:.4rem;min-height:1.15rem;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:0.98rem}
+.typing .cursor{display:inline-block;width:2px;height:1rem;background:var(--text);margin-left:.35rem;vertical-align:middle;animation:blink 1s steps(2,start) infinite}
 
 /* cards & CTAs */
 .card{background:var(--surface);padding:1rem;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.02)}
@@ -90,7 +93,11 @@ input,textarea,select{padding:.5rem;border-radius:8px;border:1px solid rgba(255,
 }
 @media (min-width:981px){ .menu-btn{display:none} }
 
-/* simple micro-animation */
+/* cursor blink animation */
+@keyframes blink{50%{opacity:.1}}
+
+/* reduced motion */
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
+  .typing .cursor{display:none}
 }

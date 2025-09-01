@@ -1,6 +1,8 @@
 (function(){
   const $ = s => document.querySelector(s);
   const $$ = s => Array.from(document.querySelectorAll(s));
+
+  // year
   const yearEl = $('#year'); if(yearEl) yearEl.textContent = (new Date()).getFullYear();
 
   // Theme
@@ -29,25 +31,73 @@
     });
   }
 
-  // Small typing (static/fallback)
-  const typingEl = $('#typing');
-  if(typingEl){
-    // keep static short sentence (fast, no heavy typing loop).
-    typingEl.textContent = 'Small apps · Clear code · Performance-minded';
-  }
+  // Typing animation (lightweight, respects prefers-reduced-motion)
+  (function typing(){
+    const textEl = $('#typing-text');
+    const cursor = document.querySelector('.typing .cursor');
+    const phrases = [
+      'Small apps · Clear code · Performance-minded',
+      'Accessible by default',
+      'Readable, testable, fast'
+    ];
+    if(!textEl) return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+      // Respect reduced motion: static first phrase
+      textEl.textContent = phrases[0];
+      if(cursor) cursor.style.display = 'none';
+      return;
+    }
+
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    let active = true;
+
+    // Pause when page hidden to save CPU
+    document.addEventListener('visibilitychange', () => { active = !document.hidden; });
+
+    function tick(){
+      if(!active){
+        setTimeout(tick, 300);
+        return;
+      }
+      const phrase = phrases[phraseIdx];
+      if(!deleting){
+        charIdx++;
+        textEl.textContent = phrase.slice(0, charIdx);
+        if(charIdx >= phrase.length){
+          // pause at end
+          setTimeout(()=> { deleting = true; setTimeout(tick, 60); }, 900);
+          return;
+        }
+        setTimeout(tick, 70 + (Math.random()*30));
+      } else {
+        charIdx--;
+        textEl.textContent = phrase.slice(0, charIdx);
+        if(charIdx <= 0){
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(tick, 250);
+          return;
+        }
+        setTimeout(tick, 35 + (Math.random()*20));
+      }
+    }
+    tick();
+  })();
 
   // Reveal on scroll
-  const reveal = $$('.project, .card');
-  if('IntersectionObserver' in window && reveal.length){
+  const revealEls = $$('.project, .card');
+  if('IntersectionObserver' in window && revealEls.length){
     const io = new IntersectionObserver(entries=>{
       entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('visible'); });
     }, {threshold: .12});
-    reveal.forEach(r => io.observe(r));
+    revealEls.forEach(r => io.observe(r));
   } else {
-    reveal.forEach(r => r.classList.add('visible'));
+    revealEls.forEach(r => r.classList.add('visible'));
   }
 
-  // Modal open/close (delegated)
+  // Modal handling (delegated)
   let lastActive = null;
   function openModal(id){
     const modal = document.getElementById(id); if(!modal) return;
@@ -68,12 +118,11 @@
     if(close){
       const m = close.closest('.modal'); if(m) closeModal(m);
     }
-    // click outside modal content
     if(e.target.classList && e.target.classList.contains('modal')) closeModal(e.target);
   });
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') $$('.modal.open').forEach(m=> closeModal(m)); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') $$('.modal.open').forEach(m => closeModal(m)); });
 
-  // Focus trap (simple)
+  // Focus trap helpers
   function trapFocus(modal){
     const focusable = modal.querySelectorAll('a[href],button,textarea,input,select,[tabindex]:not([tabindex="-1"])');
     if(!focusable.length) return;
@@ -112,7 +161,7 @@
     });
   }
 
-  // TASKS (localStorage)
+  // TASKS
   const TASK_KEY = 'dn_tasks_v1';
   const taskForm = $('#task-form'), taskList = $('#task-list');
   if(taskForm && taskList){
@@ -146,7 +195,7 @@
     renderTasks();
   }
 
-  // MINI BLOG (localStorage)
+  // MINI BLOG
   const POSTS_KEY = 'dn_posts_v1';
   const postForm = $('#post-form'), postsEl = $('#posts');
   if(postForm && postsEl){
@@ -173,7 +222,7 @@
     renderPosts();
   }
 
-  // SNAKE (lightweight)
+  // SNAKE
   const snakeCanvas = $('#snake-canvas'), snakeStart = $('#snake-start'), snakeReset = $('#snake-reset'), snakeSpeed = $('#snake-speed'), snakeScore = $('#snake-score');
   if(snakeCanvas && snakeStart){
     const ctx = snakeCanvas.getContext('2d'), grid = 18;
@@ -216,7 +265,7 @@
     return Function('"use strict";return ('+expr+')')();
   }
 
-  // lazy: ensure thumbs lazy
+  // lazy thumbs
   $$('.thumb').forEach(i => i.loading = 'lazy');
 
   function escapeHtml(s){ return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
