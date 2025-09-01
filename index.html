@@ -1,68 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dipson Nepal - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dipson Nepal — Portfolio</title>
+  <meta name="description" content="Dipson Nepal — Web Developer portfolio with interactive demos." />
+  <link rel="preload" href="dipson2.jpg" as="image">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle" onclick="toggleTheme()">
-    <span>🌙 / ☀️</span>
+  <!-- Skip link (visually hidden until focused) -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="wrap topbar-inner">
+      <div class="brand">Dipson Nepal</div>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <button id="themeToggle" aria-pressed="false" class="icon-btn" title="Toggle theme">🌙</button>
+        <button id="menuToggle" aria-expanded="false" class="icon-btn menu-btn" title="Toggle menu" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-left">
+          <h1 id="hero-heading">
+            Hi — I'm <span class="accent">Dipson Nepal</span>
+            <span class="h1-anim" aria-hidden="true"></span>
+          </h1>
+          <p class="lead">I make fast, accessible web apps and small delightful UIs.</p>
+
+          <!-- Tech badges -->
+          <div class="tech-badges" aria-hidden="false">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React-ready</span><span>Design</span>
+          </div>
+
+          <!-- Typing animation -->
+          <p class="typing" id="typing" aria-live="polite"></p>
+
+          <div class="hero-ctas">
+            <a class="btn primary" href="#projects">See Projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-label="About card">
+          <div class="card">
+            <div class="card-head">
+              <div class="svg-avatar" aria-hidden="true">
+                <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c83ff"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
+                  <rect rx="14" width="100" height="100" fill="url(#g)"></rect>
+                  <text x="50" y="60" font-size="40" text-anchor="middle" fill="#fff" font-family="Inter, Arial">DN</text>
+                </svg>
+              </div>
+              <div>
+                <h3>Dipson Nepal</h3>
+                <p class="muted">Web Developer & Designer</p>
+                <a class="smalllink" href="#contact">Say hello →</a>
+              </div>
+            </div>
+
+            <div class="card-stats">
+              <div><strong>5+</strong><span>Projects</span></div>
+              <div><strong>3+</strong><span>Years</span></div>
+              <div><strong>100%</strong><span>Focus</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <div class="wrap">
+        <h2 id="projects-heading" class="section-title">Featured Projects</h2>
+        <p class="muted">Click a card to open the demo. Demos run client-side.</p>
+
+        <div class="grid projects-grid" role="list">
+          <article class="project" role="listitem" data-modal="modal-weather" tabindex="0">
+            <div class="project-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M6 14a6 6 0 1 1 12 0H6z"/></svg>
+            </div>
+            <img src="Weather.png" class="thumb" alt="Weather app logo">
+            <h3>Weather App</h3>
+            <p>Search city names and get current weather (Open-Meteo — no key).</p>
+          </article>
+
+          <article class="project" role="listitem" data-modal="modal-tasks" tabindex="0">
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11l2 2 4-4"/></svg></div>
+            <img src="Todo.png" class="thumb" alt="Task manager logo">
+            <h3>Task Manager</h3>
+            <p>Add, edit, schedule and persist tasks locally.</p>
+          </article>
+
+          <article class="project" role="listitem" data-modal="modal-blog" tabindex="0">
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v2H4zM4 10h10v2H4zM4 14h16v2H4z"/></svg></div>
+            <img src="MiniBlog.png" class="thumb" alt="Mini blog logo">
+            <h3>Mini Blog</h3>
+            <p>Client-side posts with create/read/delete and categories.</p>
+          </article>
+
+          <article class="project" role="listitem" data-modal="modal-snake" tabindex="0">
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h16v2H4z"/></svg></div>
+            <img src="Snake.png" class="thumb" alt="Snake game logo">
+            <h3>Snake Game</h3>
+            <p>Classic canvas snake. Adjustable speed, keyboard controls.</p>
+          </article>
+
+          <article class="project" role="listitem" data-modal="modal-calc" tabindex="0">
+            <div class="project-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v16H4zM7 7h3v3H7z"/></svg></div>
+            <img src="Calculator.png" class="thumb" alt="Calculator logo">
+            <h3>Calculator</h3>
+            <p>Responsive calculator with keyboard support and safe parsing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="wrap about-grid">
+        <div>
+          <h2 id="about-heading" class="section-title">About</h2>
+          <p class="muted">I build modern, accessible interfaces and small web tools. Clarity, performance, and tidy UX are my priorities.</p>
+        </div>
+        <div class="card contact-card">
+          <h3>Contact</h3>
+          <p class="muted">Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="wrap contact-grid">
+        <div>
+          <h2 id="contact-heading" class="section-title">Get in touch</h2>
+          <p class="muted">DM on Instagram or send an email.</p>
+          <p><a href="https://instagram.com/d._.nepal" target="_blank" rel="noopener">Instagram</a></p>
+        </div>
+
+        <form id="contact-form" class="card contact-form" aria-label="Contact form">
+          <input id="cf-name" placeholder="Your name" required>
+          <input id="cf-email" type="email" placeholder="Your email" required>
+          <textarea id="cf-msg" rows="4" placeholder="Message" required></textarea>
+          <div class="form-actions"><button class="btn primary" type="submit">Send</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><small>© <span id="year"></span> Dipson Nepal</small></div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modal-weather" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Weather App</h3>
+      <form id="weather-form" class="row">
+        <input id="weather-input" placeholder="City (e.g., Kathmandu)" required>
+        <button class="btn" type="submit">Lookup</button>
+      </form>
+      <div id="weather-output" class="output" aria-live="polite"></div>
+    </div>
   </div>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <h1>Hi, I am <span class="name">Dipson Nepal</span></h1>
-    <h2>I am a <span id="animated-text"></span></h2>
-    
-    <!-- Social Media -->
-    <div class="socials">
-      <a href="https://facebook.com/" target="_blank">Facebook</a>
-      <a href="https://instagram.com/" target="_blank">Instagram</a>
-      <a href="https://github.com/" target="_blank">GitHub</a>
+  <div id="modal-tasks" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Task Manager</h3>
+      <form id="task-form" class="row">
+        <input id="task-input" placeholder="New task title" required>
+        <input id="task-due" type="date">
+        <button class="btn" type="submit">Add</button>
+      </form>
+      <ul id="task-list" class="list"></ul>
     </div>
-  </section>
+  </div>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <a href="projects/snake.html" class="project-card">🐍 Snake Game</a>
-      <a href="projects/wordle.html" class="project-card">🔤 Wordle Clone</a>
-      <a href="projects/calculator.html" class="project-card">🧮 Calculator</a>
-      <a href="projects/stopwatch.html" class="project-card">⏱ Stopwatch</a>
-      <a href="projects/carinfo.html" class="project-card">🚗 Car Info App</a>
+  <div id="modal-blog" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Mini Blog</h3>
+      <form id="post-form" class="col">
+        <input id="post-title" placeholder="Title" required>
+        <select id="post-cat"><option>General</option><option>Tech</option><option>Life</option></select>
+        <textarea id="post-body" rows="6" placeholder="Write..." required></textarea>
+        <div class="form-actions"><button class="btn" type="submit">Publish</button></div>
+      </form>
+      <div id="posts" class="output"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
-    <p>Write about your schooling, college, and experiences here.</p>
-  </section>
+  <div id="modal-snake" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Snake</h3>
+      <div class="row snake-controls">
+        <label>Speed <input id="snake-speed" type="range" min="4" max="18" value="10"></label>
+        <button class="btn" id="snake-start">Start</button>
+        <button class="btn ghost" id="snake-reset">Reset</button>
+      </div>
+      <canvas id="snake-canvas" width="360" height="360" aria-label="Snake game"></canvas>
+      <div class="muted">Score: <span id="snake-score">0</span></div>
+    </div>
+  </div>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript</li>
-      <li>Python & C++ Basics</li>
-      <li>Problem Solving</li>
-    </ul>
-  </section>
+  <div id="modal-calc" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3>Calculator</h3>
+      <div class="calc">
+        <input id="calc-display" class="calc-display" readonly aria-label="Calculator display">
+        <div id="calc-grid" class="calc-grid" role="group" aria-label="Calculator buttons"></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- FAQ / Reviews -->
-  <section id="reviews">
-    <h2>Reviews & FAQs</h2>
-    <form id="review-form">
-      <input type="text" id="review-input" placeholder="Leave a review..." required>
-      <button type="submit">Submit</button>
-    </form>
-    <div id="review-list"></div>
-  </section>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
